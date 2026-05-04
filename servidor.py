@@ -1,32 +1,41 @@
 import socket
-import threading
+import os  # para verificar archivos
 
-clientes = []
-
-def manejar_cliente(conn, nombre):
-    while True:
-        try:
-            msg = conn.recv(1024).decode()
-            if not msg:
-                break
-            print(f"[{nombre}]: {msg}")
-            # Reenviar a todos los demás
-            for c, n in clientes:
-                if c != conn:
-                    c.send(f"[{nombre}]: {msg}".encode())
-        except:
-            break
-    clientes.remove((conn, nombre))
-    conn.close()
+HOST = "0.0.0.0"
+PORT = 5000
 
 servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-servidor.bind(("0.0.0.0", 5000))
+servidor.bind((HOST, PORT))
 servidor.listen()
-print("Servidor escuchando en puerto 5000...")
+
+print("Servidor activo en puerto 5000...")
 
 while True:
     conn, addr = servidor.accept()
-    nombre = conn.recv(1024).decode()
-    clientes.append((conn, nombre))
-    print(f"{nombre} se conectó desde {addr}")
-    threading.Thread(target=manejar_cliente, args=(conn, nombre)).start()
+    print(f"Conexión desde {addr}")
+
+    try:
+        # Recibir nombre del archivo
+        nombre_archivo = conn.recv(1024).decode().strip()
+        print(f"Cliente solicitó: {nombre_archivo}")
+
+        # Verificar si existe
+        if os.path.exists(nombre_archivo):
+
+            with open(nombre_archivo, "r", encoding="utf-8") as f:
+                contenido = f.read()
+
+            respuesta = "EXITO\n" + contenido
+
+        else:
+            respuesta = "ERROR: Archivo no encontrado"
+
+        # Enviar respuesta
+        conn.sendall(respuesta.encode())
+
+    except Exception as e:
+        print("Error:", e)
+
+    finally:
+        conn.close()
+        print("Conexión cerrada\n")
