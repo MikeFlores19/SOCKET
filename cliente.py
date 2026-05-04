@@ -1,6 +1,6 @@
 import socket
 
-IP_SERVIDOR = "127.0.0.1"  # cambia si es otra PC
+IP_SERVIDOR = "127.0.0.1"  
 PORT = 5000
 
 cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
