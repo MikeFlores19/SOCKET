@@ -1,0 +1,58 @@
+Librerias 
+para elaborar una red neuronal en Python
+Python cuenta con un ecosistema robusto de bibliotecas diseñadas para trabajar con redes neuronales. Aquí tienes algunas de las más populares y útiles:
+
+
+TensorFlow
+
+Desarrollada por Google, es una de las bibliotecas más potentes para construir y entrenar redes neuronales.
+Ofrece soporte para redes neuronales profundas, aprendizaje automático y aprendizaje profundo.
+Ideal para proyectos complejos y escalables.
+
+
+
+Keras
+
+Es una API de alto nivel que funciona sobre TensorFlow.
+Muy intuitiva y fácil de usar, perfecta para principiantes.
+Permite construir modelos de forma rápida con pocas líneas de código.
+
+
+
+PyTorch
+
+Desarrollada por Facebook, es conocida por su flexibilidad y facilidad para depurar.
+Muy utilizada en investigación y proyectos experimentales.
+Ofrece un enfoque dinámico para construir redes neuronales.
+
+
+
+Scikit-learn
+
+Aunque no está diseñada específicamente para redes neuronales profundas, es excelente para modelos más simples y aprendizaje automático.
+Ideal para tareas como clasificación, regresión y clustering.
+
+
+
+Theano
+
+Una biblioteca más antigua, pero aún útil para cálculos matemáticos eficientes y redes neuronales básicas.
+Es menos popular hoy en día, pero fue pionera en este campo.
+
+
+
+MXNet
+
+Una biblioteca escalable y eficiente, respaldada por Apache.
+Soporta múltiples lenguajes y es ideal para proyectos distribuidos.
+
+
+
+Fastai
+
+Construida sobre PyTorch, está diseñada para facilitar el aprendizaje profundo.
+Ofrece herramientas de alto nivel para tareas comunes como clasificación de imágenes, procesamiento de texto, etc.
+
+
+
+Estas bibliotecas te permitirán abordar desde proyectos básicos hasta modelos avanzados de redes neuronales. Si estás comenzando, Keras o PyTorch son excelentes opciones para aprender.
