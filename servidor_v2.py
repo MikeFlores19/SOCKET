@@ -13,6 +13,7 @@ while True:
     print(f">>> Conexión abierta desde {addr}")
 
     archivo = conn.recv(1024).decode().strip()
+    peticion=conn.recv(1024).decode().strip()
     ruta = os.path.join(CARPETA, archivo)
 
     if os.path.exists(ruta):
@@ -21,7 +22,6 @@ while True:
         respuesta = f"EXITO\n{contenido}"
     else:
         respuesta = "ERROR\nArchivo no encontrado"
-
     conn.send(respuesta.encode())
     conn.close()
     print(f"<<< Conexión cerrada — archivo: '{archivo}'")
