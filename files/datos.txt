@@ -1,1 +1,79 @@
-Hola, este es un archivo de prueba
+================================================================
+                    [ DATOS.TXT ]
+         una historia de archivos y matematicas
+================================================================
+
+PANEL 1                          PANEL 2
++----------------------+         +----------------------+
+|  oye... alguien me  |         | +------------------+ |
+|  va a pedir?        |         | |  http://localhost  | |
+|                     |         | |  :5000/datos.txt  | |
+|   _____             |         | +------------------+ |
+|  /     \            |         |                      |
+| | o   o |           |         |  ** GET /datos.txt **|
+| |   ^   |           |         |  ** HTTP/1.1       **|
+| |  ___  |           |         |                      |
+|  \_____/            |         |   el navegador       |
+|  datos.txt          |         |   ataca              |
++----------------------+         +----------------------+
+
+PANEL 3
++--------------------------------------------------+
+|  servidor_http.py recibe la peticion...          |
+|                                                  |
+|  recv(4096)        --> bytes recibidos           |
+|  split("\r\n")[0]  --> "GET /datos.txt HTTP/1.1" |
+|  metodo  = GET                                   |
+|  recurso = /datos.txt                            |
+|  os.path.isfile()  --> TRUE  archivo encontrado! |
++--------------------------------------------------+
+
+PANEL 4                          PANEL 5
++----------------------+         +----------------------+
+|  me encontraron!!   |         |   HTTP/1.1 200 OK    |
+|                     |         |   Content-Type:      |
+|   _____             |         |   text/plain         |
+|  /     \            |         |   Content-Length: 42 |
+| | ^   ^ |           |         |   Connection: close  |
+| |  \_/  |           |         |                      |
+| |       |           |         |   Hola, este es un   |
+|  \_____/            |         |   archivo de prueba  |
+|                     |         |                      |
+|  datos.txt feliz    |         |   --> navegador      |
++----------------------+         +----------------------+
+
+================================================================
+PANEL 6: LA GRAN VERDAD MATEMATICA
++--------------------------------------------------+
+|                                                  |
+|   el archivo dice:  1 + 1 = 3  ???               |
+|                                                  |
+|        _____                                     |
+|       / o o \    <-- confundido                  |
+|      |   ?   |                                   |
+|      |  ___  |                                   |
+|       \_____/                                    |
+|                                                  |
+|   NO. La respuesta correcta es:                  |
+|                                                  |
+|            1                                     |
+|          + 1                                     |
+|          ---                                     |
+|            2    <-- siempre                      |
+|                                                  |
+|   * las matematicas no se negocian *             |
++--------------------------------------------------+
+
+================================================================
+PANEL 7: FIN
++--------------------------------------------------+
+|                                                  |
+|              \(^o^)/                             |
+|               |   |                             |
+|              / \ / \                            |
+|                                                  |
+|   servidor corriendo en puerto 5000              |
+|   ~ hola, este es un archivo de prueba ~         |
+|                                                  |
++--------------------------------------------------+
+================================================================
